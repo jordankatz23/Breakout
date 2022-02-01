@@ -1,0 +1,41 @@
+# Jordan Katz 
+# Breakout programming assignment 1
+
+
+5 GOTO 15
+10 Q=( PDL (0)-20)/6: if Q<0 Then q=0: if Q>= 34 then q = 34: color = D: VLIN q,q+5 at 0: color=a: if p>q then 175: if q then vlin 0,q-1 at 0:p=q:return
+15 dim a$(15),B$(10):a=1:b=13:c=9:d=6:e=15: Text: Call - 936: vtab 4: tab 10: Print "*** Breakout ***": PRINT
+20 print "     Object is to destroy all Bricks": print: input "Hi, What is your name?", a$
+25 print "standard colors";a$;: input " Y/N? ", B$: Gr:Call -936:if B$(1,1)#"N" then 40 : for i=0 to 39: color = (i/2)*(i(32)):vlin 0,39 at I
+30 next i: poke 34,20: Print : print : print : for i=0 to 15: vtab 21+i mod 2: tab i+i+1: print i;: next i: poke 34,22: vtab 24: print: print "Background";
+35 gosub 95:a=e: print "even brick" ;: gosub 95:b=e: print "odd brick";: gosub 95:c=e: print "Paddle";: gosub 95:d=e: print "ball";: gosub 95
+40 poke 34,20: color = a:
+41 for i=0 to 39:vlin 0,39 at i: next i:for i=20 to 34 step 2:tab i+1:print i/2-9;:color = b: vlin 0,39 at i: color=c: for j=i mod 4 to 39 step 4
+45 vlin j,j+1 at i: next j,i: tab 5: print "score = 0": print : print: poke 34,21:S=0:p=s:l=s:x=19:y=19:l=6
+50 color=a: plot x,y/3:x=19:y=rnd (120):v=-1:w=rnd (5)-2:l=l-1: if l<1 then 120: tab 6: if l>1 then print l;" balls left"
+55 if l=1 then print "last ball," ;a$: print : for i=1 to 100: gosub 10: next i: m=1:n=0 
+60 j=y+w: if j>=0 and j<120 then 65: w=-w: j=y: for i=1 to 6:k=peek (-16336):next i
+65 i=x+v: if I<0 then 100: gosub 170: color=a:k=j/3: if I>39 then 75: If scrn(i,k)=a  then 85: if i then 100: n=n+1: v=(n>5)+1:w=(k-p)*2-5:m=1
+70 z=peek (-16336)- peek (-16336)+ peek (-16336)- peek (-16336)+  peek (-16336)- peek (-16336)+ peek (-16336): go to 85
+75 for i=1 to 6:m=peek (-16336): next i:i=x:m=0
+80 v=-v
+85 plot x,y/3: color=e: plot I,k:x=i:y=j: goto 60
+90 print "invalid. reenter";
+95 input " color (0 to 15)",e: if e<0 or e>15 then 90: return 
+100 if m then v=abs (v): VLIN k/2*2,k/2*2+1 at i:s=s+i/2-9: VTAB 21: tab 13: print s
+105 q= peek (-16336)- peek (-16336)+ peek (-16336)- peek (-16336)+ peek (-16336)- peek (-16336)+ peek (-16336)- peek (-16336)+peek (-16336)- peek (-16336)
+110 if s<720 then 80
+115 print "congratulations,";a$;"you win!": go to 165
+120 print "your score of";s;" is ";: go to 125+(s/100)*5
+125 print "terrible!": go to 165
+130 print "lousy.": go to 165
+135 print "poor.": go to 165
+140 print "fair.": go to 165
+145 print "good.": go to 165 
+150 print "very good.": go to 165
+155 print "excellent": go to 165
+160 print "nearly perfect."
+165 print "another game";a$;"(y/n)";: input a$: If a$(1,1)="y" then 25: text : call -936: vtab 10: tab 10: print "game over": end  
+170 q=( pdl (0)-20)/6: if q<0 then q=0: if q>=34 then q=34: color=d: vlin q,q+5 at 0: color=a: if p>q then 175: if q then vlin 0,Q-1 at 0:p=q:return
+175 if p=q then return : if q#34 then vlin q+6,39 at 0:p=q: return 
+180 for i=1 to 80:q= peek (-16336): next i: go to 50  
